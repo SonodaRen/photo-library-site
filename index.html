@@ -82,6 +82,25 @@
     </style>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // 許可されたトークン（必要に応じて変更）
+        const validToken = "123456";
+
+        // URLからトークンを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get("token");
+
+        // トークンが無効な場合、アクセスを拒否
+        if (token !== validToken) {
+          document.body.innerHTML = `
+              <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+                  <h1>アクセスが拒否されました</h1>
+                  <p>このページを表示するには有効なQRコードが必要です。</p>
+              </div>
+          `;
+          return; // スクリプトの実行を停止
+        }
+
+        // 以下はアニメーション処理
         const photos = document.querySelectorAll(".photo");
         const title = document.querySelector("h1");
         const descriptionText = document.querySelector(".description-text");
@@ -117,6 +136,7 @@
         titleObserver.observe(descriptionText);
       });
     </script>
+
   </head>
   <body>
     <div class="container">
