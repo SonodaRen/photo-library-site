@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回憶的調色盤</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("photo53.jpg") center/cover no-repeat,
+          radial-gradient(
+            circle,
+            rgba(255, 182, 193, 0.75) 50%,
+            rgba(255, 255, 255, 0) 100%
+          );
+        color: #333;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2.5em;
+        font-weight: 700;
+        margin: 50px 0 20px;
+        color: #fff;
+        opacity: 0;
+        transform: translateY(-30px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+      }
+      .description-text {
+        font-size: 1.2em;
+        color: #fff;
+        margin-bottom: 40px;
+        opacity: 0;
+        transform: translateY(-30px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+      }
+      .photo {
+        margin-bottom: 70px; /* Increased spacing */
+        display: inline-block;
+        position: relative;
+        background: rgba(255, 255, 255, 0.75); /* Set transparency to 75% */
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+      }
+      .photo29 {
+        background: rgba(
+          255,
+          182,
+          193,
+          0.75
+        ); /* Light pink color with 75% transparency */
+      }
+      .photo.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .photo img {
+        max-width: 50%;
+        height: auto;
+        border-radius: 0; /* Remove rounding for inserted images */
+      }
+      .photo-description {
+        margin-top: 15px;
+        font-size: 1em;
+        color: #000; /* Set description text to dark black */
+      }
+      .visible-title {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const photos = document.querySelectorAll(".photo");
+        const title = document.querySelector("h1");
+        const descriptionText = document.querySelector(".description-text");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        photos.forEach((photo) => {
+          observer.observe(photo);
+        });
+
+        // Add title and description animations
+        const titleObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible-title");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        titleObserver.observe(title);
+        titleObserver.observe(descriptionText);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>回憶的調色盤</h1>
+      <p class="description-text">
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        思い出には色が宿る<br />
+        それはパレットに広がる絵の具のように、延び、滲み、そして混ざり合ってゆく<br />
+        ここは、冒険し、見つけた二人だけの『色のフォトギャラリー』<br />
+        これから出会う色は、どんな色だろうか
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </p>
+      <!-- Photos start here -->
+      <div class="photo">
+        <img src="photo1.jpg" alt="Description of photo 1" />
+        <p class="photo-description">
+          ホテルに見送ったあと、袋のなかにゆかのモバイルバッテリー<br />また会えるからその時に返すねって。なんか嬉しかった。特別な思い出。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo2.jpg" alt="Description of photo 2" />
+        <p class="photo-description">
+          ゆかはメンダコに似ている🐙<br />ゆかはシャチを選んでくれた。<br />隣で爆睡してる。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo3.jpg" alt="Description of photo 3" />
+        <p class="photo-description">
+          散歩付きの二人。<br />ベンチに座って長話。<br />好きが芽生えてく。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo4.jpg" alt="Description of photo 4" />
+        <p class="photo-description">
+          常滑のおしゃれなお店でランチ<br />雨が降ってても楽しい<br />某声優の熱狂ファンだと知る。。。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo5.jpg" alt="Description of photo 5" />
+        <p class="photo-description">
+          ゆかが気になってたマスキングテープをこっそり買おうと外を見てるふり。<br />後ろでゆかは会計中
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo6.jpg" alt="Description of photo 6" />
+        <p class="photo-description">
+          猫を支配するゆか<br />なぜか動物に好かれる。自分は好かれない。なぜ。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo7.jpg" alt="Description of photo 7" />
+        <p class="photo-description">散歩中で見つけた綿毛。</p>
+      </div>
+      <div class="photo">
+        <img src="photo8.jpg" alt="Description of photo 8" />
+        <p class="photo-description">
+          なぜこんなでかいリュックをいつも持っているんだろうか。。。<br />って後ろで思っている。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo9.jpg" alt="Description of photo 9" />
+        <p class="photo-description">
+          何だこのねこ。<br />ゆかは寝巻きみたいな白いパーカー着てた。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo10.jpg" alt="Description of photo 10" />
+        <p class="photo-description">二人のアルバムジャケ画１枚目！！</p>
+      </div>
+      <div class="photo">
+        <img src="photo11.jpg" alt="Description of photo 11" />
+        <p class="photo-description">
+          仕事の合間に相手してくれてありがとう<br />と思いながら、<br />本当にこの人はよく寝るなぁと感心
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo12.jpg" alt="Description of photo 12" />
+        <p class="photo-description">
+          浜松上陸し新幹線の入場チケットで入場しはしゃぐ二人
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo13.jpg" alt="Description of photo 13" />
+        <p class="photo-description">よく食べるなぁ（感心）</p>
+      </div>
+      <div class="photo">
+        <img src="photo14.jpg" alt="Description of photo 14" />
+        <p class="photo-description">
+          かわいい<br />でもカメラを向けると変顔するから隠し撮りを覚え始める
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo15.jpg" alt="Description of photo 15" />
+        <p class="photo-description">ゆかが撮ってくれた思い出の写真</p>
+      </div>
+      <div class="photo">
+        <img src="photo16.jpg" alt="Description of photo 16" />
+        <p class="photo-description">
+          なぜかいつも雨、、<br />、、関係なくはしゃぐ二人
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo17.jpg" alt="Description of photo 17" />
+        <p class="photo-description">めっちゃ落ち込む<br />理由は聞くな。</p>
+      </div>
+      <div class="photo">
+        <img src="photo18.jpg" alt="Description of photo 18" />
+        <p class="photo-description">
+          話さないようにしてたけどいつも見ちゃう通知欄。<br />ゆかが帰ることを知って頭が真っ白になる。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo19.jpg" alt="Description of photo 19" />
+        <p class="photo-description">
+          ゆかが豊橋きた。チューニングが全然できてないギターを奥で弾く
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo20.jpg" alt="Description of photo 20" />
+        <p class="photo-description">何してんだろ笑</p>
+      </div>
+      <div class="photo">
+        <img src="photo21.jpg" alt="Description of photo 21" />
+        <p class="photo-description">
+          ポカーンって口開けて音楽聞いてるゆかもよかった。<br />写真撮ってないの悔しいぃーー
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo22.jpg" alt="Description of photo 22" />
+        <p class="photo-description">お花見一緒に行きたいなーって</p>
+      </div>
+      <div class="photo">
+        <img src="photo23.jpg" alt="Description of photo 23" />
+        <p class="photo-description">
+          一緒にいる時間が増えてく。<br />こんな彼女がいたら幸せだと思った。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo24.jpg" alt="Description of photo 24" />
+        <p class="photo-description">
+          念願の花見🌸<br />お兄ちゃん、、気を遣ってくれてる！？
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo25.jpg" alt="Description of photo 25" />
+        <p class="photo-description">
+          1番好きな写真。<br />下唇が出てるのもいい。めっちゃいい。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo26.jpg" alt="Description of photo 26" />
+        <p class="photo-description">
+          豊橋の新居<br />初めてのお客さんはゆか<br />冷蔵庫代わりにUberバック<br />もう彼女でいいんじゃないか？って思ってる。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo27.jpg" alt="Description of photo 27" />
+        <p class="photo-description">しっくりくる。</p>
+      </div>
+      <div class="photo">
+        <img src="photo28.jpg" alt="Description of photo 28" />
+        <p class="photo-description">
+          魚が跳ねたことにはしゃぐ。<br />めっちゃ好き。かわいい🐟
+        </p>
+      </div>
+      <div class="photo photo29">
+        <img src="photo29.jpg" alt="Description of photo 29" />
+        <p class="photo-description"></p>
+      </div>
+      <div class="photo">
+        <img src="photo30.jpg" alt="Description of photo 30" />
+        <p class="photo-description">遠距離生活の始まり</p>
+      </div>
+      <div class="photo">
+        <img src="photo31.jpg" alt="Description of photo 31" />
+        <p class="photo-description">
+          一日早く家に来たゆか。<br />夜に海へ<br />ピアノも弾く
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo32.jpg" alt="Description of photo 32" />
+        <p class="photo-description">
+          二人で作ったけどまだゆかは飲んでいない。<br />酒になってないか心配
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo33.jpg" alt="Description of photo 33" />
+        <p class="photo-description">笑顔が好き。</p>
+      </div>
+      <div class="photo">
+        <img src="photo34.jpg" alt="Description of photo 34" />
+        <p class="photo-description">
+          トイレに行ってる間にパスワード間違えまくっちゃった。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo35.jpg" alt="Description of photo 35" />
+        <p class="photo-description">なんか落ち着く。</p>
+      </div>
+      <div class="photo">
+        <img src="photo36.jpg" alt="Description of photo 36" />
+        <p class="photo-description">二人で食べると美味しいね。🥘</p>
+      </div>
+      <div class="photo">
+        <img src="photo37.jpg" alt="Description of photo 37" />
+        <p class="photo-description">どうしたらいいのかわからない男。</p>
+      </div>
+      <div class="photo">
+        <img src="photo38.jpg" alt="Description of photo 38" />
+        <p class="photo-description">
+          この写真もめっちゃ好き！！<br />トイレから戻ったら残りの酒を飲み干すか迷ってるゆかを発見<br />しばらく缶ビールと見つめ合ってからグッと。。<br />言動が可愛すぎだろ。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo39.jpg" alt="Description of photo 39" />
+        <p class="photo-description">ゆかが帰った後の歯ブラシ。</p>
+      </div>
+      <div class="photo">
+        <img src="photo40.jpg" alt="Description of photo 40" />
+        <p class="photo-description">
+          バカップル。<br />ゆかの頭が肩に乗ってるの好き。<br />細くて柔らかい髪が頬に擦れる。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo41.jpg" alt="Description of photo 41" />
+        <p class="photo-description">
+          どんな彼女か聞かれてこのこと話すと羨ましがられる。<br />自慢の彼女。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo42.jpg" alt="Description of photo 42" />
+        <p class="photo-description">
+          ルックバックを流れてくるパーで弾いて暗譜してる猛者
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo43.jpg" alt="Description of photo 43" />
+        <p class="photo-description">ずっと会いたい気持ちが収まらず、、、</p>
+      </div>
+      <div class="photo">
+        <img src="photo44.jpg" alt="Description of photo 44" />
+        <p class="photo-description">
+          送ってくれた新入社員の手引きを頼りに寮の最寄えきへ。<br />ゆかとはインスタでDMしながらコンビニへ誘導<br />ドキドキ。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo45.jpg" alt="Description of photo 45" />
+        <p class="photo-description">💐</p>
+      </div>
+      <div class="photo">
+        <img src="photo46.jpg" alt="Description of photo 46" />
+        <p class="photo-description">これ好き。<br />ゆかも可愛い。</p>
+      </div>
+      <div class="photo">
+        <img src="photo47.jpg" alt="Description of photo 47" />
+        <p class="photo-description">なんでこの写真撮ったのか覚えてない。</p>
+      </div>
+      <div class="photo">
+        <img src="photo48.jpg" alt="Description of photo 48" />
+        <p class="photo-description">いい天気。<br />デートって感じした！</p>
+      </div>
+      <div class="photo">
+        <img src="photo49.jpg" alt="Description of photo 49" />
+        <p class="photo-description">
+          人前でイチャイチャするといつも恥ずかしがるゆか。<br />この日はノリがいい。<br />この繋ぎ方も好き。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo50.jpg" alt="Description of photo 50" />
+        <p class="photo-description">
+          悩んで入ったピザ。<br />マヨネーズ地獄。
+        </p>
+      </div>
+      <div class="photo">
+        <img src="photo51.jpg" alt="Description of photo 51" />
+        <p class="photo-description">なぜか動物に好かれるゆか。🐦</p>
+      </div>
+      <div class="photo">
+        <img src="photo52.jpg" alt="Description of photo 52" />
+        <p class="photo-description">紅葉狩り🍁</p>
+      </div>
+      <div class="photo">
+        <img src="photo53.jpg" alt="Description of photo 53" />
+        <p class="photo-description">いろんな色があるね。</p>
+      </div>
+      <div class="photo">
+        <img src="photo54.jpg" alt="Description of photo 54" />
+        <p class="photo-description">次はどんな色かな。</p>
+      </div>
+      <!-- Photos end here -->
+    </div>
+  </body>
+</html>
